@@ -23,23 +23,29 @@ public class ChallengesTest {
 		expected.insert("A");
 		expected.insert("B");
 		expected.insert("C");
+		
 		Assert.assertEquals(expected, Challenges.union(left, right));
 	}
 	
 	@Test
-	public void testUnionComplex() {
+	public void testUnionEmpty() {
+		SetADT<String> left = new JavaSet<>();
+		SetADT<String> right = new JavaSet<>();
+		SetADT<String> expected = new JavaSet<>();
+		
+		Assert.assertEquals(expected, Challenges.union(left, right));
+	}
+	
+	@Test
+	public void testUnionOne() {
 		SetADT<String> left = new JavaSet<>();
 		SetADT<String> right = new JavaSet<>();
 		
 		left.insert("A");
-		left.insert("B");
-		right.insert("B");
-		right.insert("C");
 		
 		SetADT<String> expected = new JavaSet<>();
 		expected.insert("A");
-		expected.insert("B");
-		expected.insert("C");
+		
 		Assert.assertEquals(expected, Challenges.union(left, right));
 	}
 	
@@ -55,21 +61,28 @@ public class ChallengesTest {
 		
 		SetADT<String> expected = new JavaSet<>();
 		expected.insert("B");
+		
 		Assert.assertEquals(expected, Challenges.intersection(left, right));
 	}
 	
 	@Test
-	public void testIntersectionComplex() {
+	public void testIntersectionEmpty() {
+		SetADT<String> left = new JavaSet<>();
+		SetADT<String> right = new JavaSet<>();
+		SetADT<String> expected = new JavaSet<>();
+		
+		Assert.assertEquals(expected, Challenges.intersection(left, right));
+	}
+	
+	@Test
+	public void testIntersectionOne() {
 		SetADT<String> left = new JavaSet<>();
 		SetADT<String> right = new JavaSet<>();
 		
 		left.insert("A");
-		left.insert("B");
-		right.insert("B");
-		right.insert("C");
 		
 		SetADT<String> expected = new JavaSet<>();
-		expected.insert("B");
+		
 		Assert.assertEquals(expected, Challenges.intersection(left, right));
 	}
 	
@@ -79,6 +92,7 @@ public class ChallengesTest {
 		for (String word : new String[] {"a", "b", "a", "b", "c", "d"}) {
 			example.addBack(word);
 		}
+		
 		MapADT<String, Integer> expected = new JavaMap<>();
 		expected.put("a", 2);
 		expected.put("b", 2);
@@ -89,16 +103,26 @@ public class ChallengesTest {
 	}
 	
 	@Test
-	public void testWordCountComplex() {
+	public void testWordCountEmpty() {
 		ListADT<String> example = new JavaList<>();
-		for (String word : new String[] {"a", "b", "a", "b", "c", "d"}) {
+		for (String word : new String[] {}) {
 			example.addBack(word);
 		}
+		
 		MapADT<String, Integer> expected = new JavaMap<>();
-		expected.put("a", 2);
-		expected.put("b", 2);
-		expected.put("c", 1);
-		expected.put("d", 1);
+	
+		Assert.assertEquals(expected, Challenges.wordCount(example));
+	}
+	
+	@Test
+	public void testWordCountOne() {
+		ListADT<String> example = new JavaList<>();
+		for (String word : new String[] {"a"}) {
+			example.addBack(word);
+		}
+		
+		MapADT<String, Integer> expected = new JavaMap<>();
+		expected.put("a", 1);
 		
 		Assert.assertEquals(expected, Challenges.wordCount(example));
 	}
