@@ -236,7 +236,8 @@ public class JavaListTest {
 		Assert.assertEquals(4, data.size());
 		Assert.assertEquals("z", data.getIndex(0));
 		Assert.assertEquals("b", data.getIndex(1));
-		data.setIndex(4, "a");
+		data.setIndex(3, "a");
+		Assert.assertEquals("a", data.getIndex(3));
 	}
 	
 	@Test

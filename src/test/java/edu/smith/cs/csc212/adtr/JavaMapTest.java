@@ -33,7 +33,7 @@ public class JavaMapTest {
 	}
 	
 	@Test
-	public void testContainsString() {
+	public void testGetString() {
 		MapADT<String, String> cons = new JavaMap<>();
 		cons.put("A", "apple");
 		cons.put("B", "banana");
@@ -47,7 +47,7 @@ public class JavaMapTest {
 	}
 	
 	@Test
-	public void testContainsInteger() {
+	public void testGetInteger() {
 		MapADT<String, Integer> coni = new JavaMap<>();
 		coni.put("A", 1);
 		coni.put("B", 2);
@@ -59,7 +59,21 @@ public class JavaMapTest {
 	}
 	
 	@Test
-	public void testRemoveMore() {
+	public void testSize() {
+		MapADT<String, String> s = new JavaMap<>();
+		assertEquals(s.size(), 0);
+		s.put("A", "apple");
+		assertEquals(s.size(), 1);
+		s.put("B", "banana");
+		assertEquals(s.size(), 2);
+		s.put("A", "apple pie");
+		assertEquals(s.size(), 2);	
+		s.remove("A");
+		assertEquals(s.size(), 1);
+	}
+	
+	@Test
+	public void testRemove() {
 		MapADT<String, String> rem = new JavaMap<>();
 		rem.put("A", "apple");
 		rem.remove("A");
