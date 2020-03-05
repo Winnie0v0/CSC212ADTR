@@ -15,7 +15,7 @@ import edu.smith.cs.csc212.adtr.Pair;
  * @param <K> - the key 
  * @param <V>
  */
-public class JavaMap<K,V> extends MapADT<K,V> {
+public class MapFromList<K,V> extends MapADT<K,V> {
 	/**
 	 * The private Java hashmap that does all the work.
 	 */
@@ -24,7 +24,7 @@ public class JavaMap<K,V> extends MapADT<K,V> {
 	/**
 	 * Create an empty MapADT.
 	 */
-	public JavaMap() {
+	public MapFromList() {
 		this.data = new LinkedHashMap<K,V>();
 	}
 	
@@ -32,7 +32,7 @@ public class JavaMap<K,V> extends MapADT<K,V> {
 	 * Create a MapADT copied from a Java Map.
 	 * @param toCopy
 	 */
-	public JavaMap(Map<K,V> toCopy) {
+	public MapFromList(Map<K,V> toCopy) {
 		this.data = new LinkedHashMap<K,V>(toCopy);
 	}
 	

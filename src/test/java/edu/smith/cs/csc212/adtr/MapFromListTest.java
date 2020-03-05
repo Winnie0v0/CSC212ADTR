@@ -3,9 +3,9 @@ package edu.smith.cs.csc212.adtr;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import edu.smith.cs.csc212.adtr.real.JavaMap;
+import edu.smith.cs.csc212.adtr.real.MapFromList;
 
-public class JavaMapTest {
+public class MapFromListTest {
 	
 	// You might want this; if you're using Map<String, Integer> anywhere...
 	// JUnit has an assertEquals(Object, Object) and an assertEquals(int, int).
@@ -17,13 +17,13 @@ public class JavaMapTest {
 
 	@Test
 	public void testEmpty() {
-		MapADT<String, String> empty = new JavaMap<>();
+		MapADT<String, String> empty = new MapFromList<>();
 		assertEquals(empty.size(), 0);
 	}
 	
 	@Test
 	public void testPut() {
-		MapADT<String, String> p = new JavaMap<>();
+		MapADT<String, String> p = new MapFromList<>();
 		p.put("A", "apple");
 		assertEquals(p.size(), 1);
 		p.put("B", "banana");
@@ -34,7 +34,7 @@ public class JavaMapTest {
 	
 	@Test
 	public void testContainsString() {
-		MapADT<String, String> cons = new JavaMap<>();
+		MapADT<String, String> cons = new MapFromList<>();
 		cons.put("A", "apple");
 		cons.put("B", "banana");
 		assertEquals(cons.get("A"), "apple");
@@ -48,7 +48,7 @@ public class JavaMapTest {
 	
 	@Test
 	public void testContainsInteger() {
-		MapADT<String, Integer> coni = new JavaMap<>();
+		MapADT<String, Integer> coni = new MapFromList<>();
 		coni.put("A", 1);
 		coni.put("B", 2);
 		assertIntEq(coni.get("A"), 1);
@@ -60,7 +60,7 @@ public class JavaMapTest {
 	
 	@Test
 	public void testRemoveMore() {
-		MapADT<String, String> rem = new JavaMap<>();
+		MapADT<String, String> rem = new MapFromList<>();
 		rem.put("A", "apple");
 		rem.remove("A");
 		assertEquals(rem.size(), 0);

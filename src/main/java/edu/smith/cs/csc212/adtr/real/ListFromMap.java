@@ -7,11 +7,10 @@ import edu.smith.cs.csc212.adtr.ListADT;
 
 /**
  * JavaList is a wrapper around Java's list as a ListADT and it gets specific if you ask it silly questions.
- * @author jfoley
  *
  * @param <T> - the type of the item stored in this list.
  */
-public class JavaList<T> extends ListADT<T> {
+public class ListFromMap<T> extends ListADT<T> {
 	/**
 	 * The Java object doing most of the work.
 	 */
@@ -20,7 +19,7 @@ public class JavaList<T> extends ListADT<T> {
 	/**
 	 * Construct an empty JavaList.
 	 */
-	public JavaList() {
+	public ListFromMap() {
 		this.inner = new ArrayList<T>();
 	}
 	
@@ -28,7 +27,7 @@ public class JavaList<T> extends ListADT<T> {
 	 * Construct this list from existing data.
 	 * @param toCopy - the elements to copy.
 	 */
-	public JavaList(List<T> toCopy) {
+	public ListFromMap(List<T> toCopy) {
 		this.inner = new ArrayList<T>(toCopy);
 	}
 	

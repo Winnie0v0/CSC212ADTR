@@ -9,17 +9,17 @@ import org.junit.Test;
 
 import edu.smith.cs.csc212.adtr.errors.BadIndexError;
 import edu.smith.cs.csc212.adtr.errors.EmptyListError;
-import edu.smith.cs.csc212.adtr.real.JavaList;
+import edu.smith.cs.csc212.adtr.real.ListFromMap;
 
 
-public class JavaListTest {
+public class ListFromMapTest {
 	
 	/**
 	 * Make a new empty list.
 	 * @return an empty list to be tested.
 	 */
 	private <T> ListADT<T> makeEmptyList() {
-		return new JavaList<>();
+		return new ListFromMap<>();
 	}
 	
 	/**
@@ -58,6 +58,16 @@ public class JavaListTest {
 	public void testRemoveIndexCrash() {
 		ListADT<String> data = makeEmptyList();
 		data.removeIndex(3);
+	}
+	
+	@Test
+	public void testSetIndex() {
+		ListADT<String> data = makeFullList();
+		data.setIndex(0, "z");
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("z", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		data.setIndex(4, "a");
 	}
 	
 	@Test
@@ -230,23 +240,13 @@ public class JavaListTest {
 	}
 	
 	@Test
-	public void testSetIndex() {
-		ListADT<String> data = makeFullList();
-		data.setIndex(0, "z");
-		Assert.assertEquals(4, data.size());
-		Assert.assertEquals("z", data.getIndex(0));
-		Assert.assertEquals("b", data.getIndex(1));
-		data.setIndex(4, "a");
-	}
-	
-	@Test
 	public void testToJava() {
 		assertEquals(makeFullList().toJava(), Arrays.asList("a", "b", "c", "d"));
 	}
 	
 	@Test
 	public void testEquals() {
-		assertEquals(makeFullList(), new JavaList<>(Arrays.asList("a", "b", "c", "d")));
+		assertEquals(makeFullList(), new ListFromMap<>(Arrays.asList("a", "b", "c", "d")));
 	}
 	
 	@Test
