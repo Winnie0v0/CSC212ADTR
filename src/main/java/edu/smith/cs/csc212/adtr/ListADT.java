@@ -33,7 +33,7 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 	/**
 	 * Set the item stored at the given index to value.
 	 * 
-	 * @param index - the index; from 0 to size() inclusive.
+	 * @param index - the index; from 0 to size() enclusive.
 	 * @param value - the value to put in the list.
 	 */
 	public abstract void setIndex(int index, ItemType value);
